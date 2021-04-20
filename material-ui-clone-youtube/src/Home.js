@@ -26,6 +26,58 @@ import VideoLibrary from "@material-ui/icons/VideoLibrary";
 import History from "@material-ui/icons/History";
 import AddCircle from "@material-ui/icons/AddCircle";
 
+const listItens = [
+  {
+    list: 1,
+    itens: [
+      { name: "Inicio", icon: <HomeIcon /> },
+      { name: "Explorar", icon: <ExploreIcon /> },
+      { name: "Inscrições", icon: <Subscriptions /> },
+    ],
+  },
+  {
+    list: 2,
+    itens: [
+      { name: "Biblioteca", icon: <VideoLibrary /> },
+      { name: "Histórico", icon: <History /> },
+    ],
+  },
+  {
+    list: 3,
+    itens: [
+      { name: "Música", icon: <AddCircle /> },
+      { name: "Esportes", icon: <AddCircle /> },
+      { name: "Jogos", icon: <AddCircle /> },
+      { name: "Filmes", icon: <AddCircle /> },
+      { name: "Notícias", icon: <AddCircle /> },
+      { name: "Ao vivo", icon: <AddCircle /> },
+      { name: "Aprender", icon: <AddCircle /> },
+      { name: "Videos do momento", icon: <AddCircle /> },
+      { name: "Video em 360º", icon: <AddCircle /> },
+    ],
+  },
+  {
+    list: 4,
+    itens: [{ name: "Procurar canais", icon: <AddCircle /> }],
+  },
+  {
+    list: 5,
+    itens: [
+      { name: "YouTube Premium", icon: <AddCircle /> },
+      { name: "Ao vivo", icon: <AddCircle /> },
+    ],
+  },
+  {
+    list: 6,
+    itens: [
+      { name: "Configurações", icon: <AddCircle /> },
+      { name: "Histórico de denúncias", icon: <AddCircle /> },
+      { name: "Ajuda", icon: <AddCircle /> },
+      { name: "Enviar feedback", icon: <AddCircle /> },
+    ],
+  },
+];
+
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
@@ -128,32 +180,6 @@ function Home() {
                   primary: classes.listItemText,
                 }}
                 primary={"Inicio"}
-              />
-            </ListItem>
-            <ListItem
-              button
-              key={"Explorar"}
-              classes={{ root: classes.listItem }}
-            >
-              <ListItemIcon>{<ExploreIcon />}</ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Explorar"}
-              />
-            </ListItem>
-            <ListItem
-              button
-              key={"Inscrições"}
-              classes={{ root: classes.listItem }}
-            >
-              <ListItemIcon>{<Subscriptions />}</ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Inscrições"}
               />
             </ListItem>
           </List>
