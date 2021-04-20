@@ -20,8 +20,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import Apps from "@material-ui/icons/Apps";
 import MoreVert from "@material-ui/icons/MoreVert";
 import HomeIcon from "@material-ui/icons/Home";
+import ExploreIcon from "@material-ui/icons/Explore";
 import Subscriptions from "@material-ui/icons/Subscriptions";
-import Whatshot from "@material-ui/icons/Whatshot";
 import VideoLibrary from "@material-ui/icons/VideoLibrary";
 import History from "@material-ui/icons/History";
 import AddCircle from "@material-ui/icons/AddCircle";
@@ -66,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: 4,
   },
   subheader: {
+    fontSize: 13,
     textTransform: "uppercase",
   },
 }));
@@ -131,15 +132,15 @@ function Home() {
             </ListItem>
             <ListItem
               button
-              key={"Em alta"}
+              key={"Explorar"}
               classes={{ root: classes.listItem }}
             >
-              <ListItemIcon>{<Subscriptions />}</ListItemIcon>
+              <ListItemIcon>{<ExploreIcon />}</ListItemIcon>
               <ListItemText
                 classes={{
                   primary: classes.listItemText,
                 }}
-                primary={"Em alta"}
+                primary={"Explorar"}
               />
             </ListItem>
             <ListItem
@@ -147,7 +148,7 @@ function Home() {
               key={"Inscrições"}
               classes={{ root: classes.listItem }}
             >
-              <ListItemIcon>{<Whatshot />}</ListItemIcon>
+              <ListItemIcon>{<Subscriptions />}</ListItemIcon>
               <ListItemText
                 classes={{
                   primary: classes.listItemText,
@@ -186,7 +187,7 @@ function Home() {
             </ListItem>
           </List>
           <Divider />
-          <Box p={7}>
+          <Box ml={6} mr={8} mt={4} mb={4}>
             <Typography variant="body2">
               Faça login para curtir videos, comentar e se inscrever.
             </Typography>
@@ -288,7 +289,7 @@ function Home() {
                 classes={{
                   primary: classes.listItemText,
                 }}
-                primary={"Destaques"}
+                primary={"Aprender"}
               />
             </ListItem>
             <ListItem button classes={{ root: classes.listItem }}>
@@ -299,7 +300,18 @@ function Home() {
                 classes={{
                   primary: classes.listItemText,
                 }}
-                primary={"Videos 360"}
+                primary={"Videos do momento"}
+              />
+            </ListItem>
+            <ListItem button classes={{ root: classes.listItem }}>
+              <ListItemIcon>
+                <AddCircle />
+              </ListItemIcon>
+              <ListItemText
+                classes={{
+                  primary: classes.listItemText,
+                }}
+                primary={"Videos em 360º"}
               />
             </ListItem>
           </List>
@@ -312,7 +324,7 @@ function Home() {
               classes={{
                 primary: classes.listItemText,
               }}
-              primary={"Procurar mais"}
+              primary={"Procurar canais"}
             />
           </ListItem>
           <Divider />
