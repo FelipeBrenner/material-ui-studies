@@ -90,11 +90,11 @@ const useStyles = makeStyles((theme) => ({
     height: 30,
   },
   drawer: {
-    width: 240,
+    width: 257,
     flexShrink: 0,
   },
   drawerPaper: {
-    width: 240,
+    width: 257,
     borderRight: "none",
   },
   drawerContainer: {
@@ -169,48 +169,43 @@ function Home() {
         <Toolbar />
         <div className={classes.drawerContainer}>
           <List>
-            <ListItem
-              button
-              key={"Inicio"}
-              classes={{ root: classes.listItem }}
-            >
-              <ListItemIcon>{<HomeIcon />}</ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Inicio"}
-              />
-            </ListItem>
+            {listItens[0].itens.map((item) => {
+              return (
+                <ListItem
+                  button
+                  key={item.name}
+                  classes={{ root: classes.listItem }}
+                >
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={item.name}
+                  />
+                </ListItem>
+              );
+            })}
           </List>
           <Divider />
           <List>
-            <ListItem
-              button
-              key={"Biblioteca"}
-              classes={{ root: classes.listItem }}
-            >
-              <ListItemIcon>{<VideoLibrary />}</ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Biblioteca"}
-              />
-            </ListItem>
-            <ListItem
-              button
-              key={"Histórico"}
-              classes={{ root: classes.listItem }}
-            >
-              <ListItemIcon>{<History />}</ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Histórico"}
-              />
-            </ListItem>
+            {listItens[1].itens.map((item) => {
+              return (
+                <ListItem
+                  button
+                  key={item.name}
+                  classes={{ root: classes.listItem }}
+                >
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={item.name}
+                  />
+                </ListItem>
+              );
+            })}
           </List>
           <Divider />
           <Box ml={6} mr={8} mt={4} mb={4}>
@@ -241,118 +236,96 @@ function Home() {
               </ListSubheader>
             }
           >
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Música"}
-              />
-            </ListItem>
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Esportes"}
-              />
-            </ListItem>
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Jogos"}
-              />
-            </ListItem>
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Filmes"}
-              />
-            </ListItem>
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Notícias"}
-              />
-            </ListItem>
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Ao vivo"}
-              />
-            </ListItem>
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Aprender"}
-              />
-            </ListItem>
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Videos do momento"}
-              />
-            </ListItem>
-            <ListItem button classes={{ root: classes.listItem }}>
-              <ListItemIcon>
-                <AddCircle />
-              </ListItemIcon>
-              <ListItemText
-                classes={{
-                  primary: classes.listItemText,
-                }}
-                primary={"Videos em 360º"}
-              />
-            </ListItem>
+            {listItens[2].itens.map((item) => {
+              return (
+                <ListItem
+                  button
+                  key={item.name}
+                  classes={{ root: classes.listItem }}
+                >
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={item.name}
+                  />
+                </ListItem>
+              );
+            })}
           </List>
           <Divider />
-          <ListItem button classes={{ root: classes.listItem }}>
-            <ListItemIcon>
-              <AddCircle />
-            </ListItemIcon>
-            <ListItemText
-              classes={{
-                primary: classes.listItemText,
-              }}
-              primary={"Procurar canais"}
-            />
-          </ListItem>
+          <List>
+            {listItens[3].itens.map((item) => {
+              return (
+                <ListItem
+                  button
+                  key={item.name}
+                  classes={{ root: classes.listItem }}
+                >
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={item.name}
+                  />
+                </ListItem>
+              );
+            })}
+          </List>
+          <Divider />
+          <List
+            component="nav"
+            aria-labelledby="nested-list-subheader"
+            subheader={
+              <ListSubheader
+                component="div"
+                id="nested-list-subheader"
+                className={classes.subheader}
+              >
+                Mais do YouTube
+              </ListSubheader>
+            }
+          >
+            {listItens[4].itens.map((item) => {
+              return (
+                <ListItem
+                  button
+                  key={item.name}
+                  classes={{ root: classes.listItem }}
+                >
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={item.name}
+                  />
+                </ListItem>
+              );
+            })}
+          </List>
+          <Divider />
+          <List>
+            {listItens[5].itens.map((item) => {
+              return (
+                <ListItem
+                  button
+                  key={item.name}
+                  classes={{ root: classes.listItem }}
+                >
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText
+                    classes={{
+                      primary: classes.listItemText,
+                    }}
+                    primary={item.name}
+                  />
+                </ListItem>
+              );
+            })}
+          </List>
           <Divider />
         </div>
       </Drawer>
