@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import clsx from "clsx";
 import {
   makeStyles,
   AppBar,
@@ -29,6 +30,8 @@ import Subscriptions from "@material-ui/icons/Subscriptions";
 import VideoLibrary from "@material-ui/icons/VideoLibrary";
 import History from "@material-ui/icons/History";
 import AddCircle from "@material-ui/icons/AddCircle";
+
+const drawerWidth = 240;
 
 const listItens = [
   {
@@ -95,12 +98,26 @@ const useStyles = makeStyles((theme) => ({
     height: 25,
   },
   drawer: {
-    width: 257,
+    width: drawerWidth,
     flexShrink: 0,
   },
-  drawerPaper: {
-    width: 257,
-    borderRight: "none",
+  drawerOpen: {
+    width: drawerWidth,
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+  },
+  drawerClose: {
+    transition: theme.transitions.create("width", {
+      easing: theme.transitions.easing.sharp,
+      duration: theme.transitions.duration.leavingScreen,
+    }),
+    overflowX: "hidden",
+    width: theme.spacing(7) + 1,
+    [theme.breakpoints.up("sm")]: {
+      width: theme.spacing(18) + 1,
+    },
   },
   drawerContainer: {
     overflow: "auto",
@@ -213,6 +230,11 @@ const videos = [
 function Home({ darkMode, setDarkMode }) {
   const classes = useStyles();
   const theme = useTheme();
+  const [open, setOpen] = useState(true);
+
+  const handleDrawer = () => {
+    setOpen(!open);
+  };
 
   return (
     <div className={classes.root}>
@@ -222,6 +244,7 @@ function Home({ darkMode, setDarkMode }) {
             edge="start"
             className={classes.menuIcon}
             aria-label="menu"
+            onClick={handleDrawer}
           >
             <MenuIcon />
           </IconButton>
@@ -258,11 +281,17 @@ function Home({ darkMode, setDarkMode }) {
       <Box display="flex">
         <Hidden mdDown>
           <Drawer
-            className={classes.drawer}
-            variant="permanent"
+            className={clsx(classes.drawer, {
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            })}
             classes={{
-              paper: classes.drawerPaper,
+              paper: clsx({
+                [classes.drawerOpen]: open,
+                [classes.drawerClose]: !open,
+              }),
             }}
+            variant="permanent"
           >
             <Toolbar />
             <div className={classes.drawerContainer}>
