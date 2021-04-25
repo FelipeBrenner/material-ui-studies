@@ -16,7 +16,9 @@ import {
   ListSubheader,
   Grid,
   Hidden,
+  Switch,
 } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import AccountCircle from "@material-ui/icons/AccountCircle";
 import Apps from "@material-ui/icons/Apps";
@@ -83,13 +85,14 @@ const listItens = [
 const useStyles = makeStyles((theme) => ({
   root: {
     height: "100vh",
+    backgroundColor: theme.palette.background.dark,
   },
   appBar: {
     boxShadow: "none",
     zIndex: theme.zIndex.drawer + 1,
   },
   logo: {
-    height: 30,
+    height: 25,
   },
   drawer: {
     width: 257,
@@ -207,8 +210,9 @@ const videos = [
   },
 ];
 
-function Home() {
+function Home({ darkMode, setDarkMode }) {
   const classes = useStyles();
+  const theme = useTheme();
 
   return (
     <div className={classes.root}>
@@ -217,21 +221,29 @@ function Home() {
           <IconButton
             edge="start"
             className={classes.menuIcon}
-            color="inherit"
             aria-label="menu"
           >
             <MenuIcon />
           </IconButton>
           <img
-            src="./images/preto.png"
+            src={
+              theme.palette.type === "dark"
+                ? "./images/branco.png"
+                : "./images/preto.png"
+            }
             alt="youtube"
             className={classes.logo}
           />
           <div className={classes.grow}></div>
-          <IconButton className={classes.icons} color="inherit">
+          <Switch
+            value={darkMode}
+            onChange={() => setDarkMode(!darkMode)}
+            className={classes.icons}
+          />
+          <IconButton className={classes.icons}>
             <Apps />
           </IconButton>
-          <IconButton className={classes.icons} color="inherit">
+          <IconButton className={classes.icons}>
             <MoreVert />
           </IconButton>
           <Button
