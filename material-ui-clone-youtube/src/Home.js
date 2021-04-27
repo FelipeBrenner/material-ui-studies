@@ -18,6 +18,7 @@ import {
   Grid,
   Hidden,
   Switch,
+  Avatar,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
@@ -143,6 +144,12 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 13,
     textTransform: "uppercase",
   },
+  divAvatar: {
+    display: "flex",
+    "& > *": {
+      margin: theme.spacing(1),
+    },
+  },
 }));
 
 const videos = [
@@ -151,80 +158,88 @@ const videos = [
     title: "LUCAS INUTILISMO - Flow Podcast #212",
     channel: "Flow Podcast",
     views: "5,6 mi de visualizações",
-    date: "há 1 semana",
+    date: "há 6 meses",
     avatar:
       "https://yt3.ggpht.com/ytc/AAUvwnjs2A34JZ0bd5aHW1aAikt1IkHaj6mqO_sQ_MPOdQ=s88-c-k-c0x00ffffff-no-rj",
     thumb:
-      "https://i.ytimg.com/an_webp/qOer7KEMHIo/mqdefault_6s.webp?du=3000&sqp=CKyVnYQG&rs=AOn4CLDDNnxLCcZ1Mp6SzMpuUQawCI9IKw",
+      "https://i.ytimg.com/vi/qOer7KEMHIo/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAcT1eRkya-xP_kUwG91eMtJQS1fA",
   },
   {
     id: 2,
-    title:
-      "COMO MELHORAR SEU CODIGO JAVASCRIPT (ESLINT + PRETTIER + EDITORCONFIG) | Dicas e Truques #02",
-    channel: "Lucas Nhimi",
-    views: "957 mil visualizações",
-    date: "há 1 semana",
-    avatar: "/images/avatar.jpeg",
-    thumb: "/images/thumb2.png",
+    title: "DIOGO DEFANTE - Flow Podcast #184",
+    channel: "Flow Podcast",
+    views: "2,9 mi de visualizações",
+    date: "há 8 meses",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AAUvwnjs2A34JZ0bd5aHW1aAikt1IkHaj6mqO_sQ_MPOdQ=s88-c-k-c0x00ffffff-no-rj",
+    thumb:
+      "https://i.ytimg.com/vi/mtcudot_Urs/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDhzNWRrJPok6CSA63alsq_KqcGoQ",
   },
   {
     id: 3,
-    title:
-      "CONTEXT API NO EDITOR DE POST | Criando uma Rede Social com React.js e .NET Core #27",
-    channel: "Lucas Nhimi",
-    views: "106 mil visualizações",
-    date: "há 1 semana",
-    avatar: "/images/avatar.jpeg",
-    thumb: "/images/thumb3.png",
+    title: "EVERSON ZOIO - Podpah #26",
+    channel: "Podpah",
+    views: "5,1 mi de visualizações",
+    date: "Transmitido há 4 meses",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AAUvwniChRToD--JOEs8A18uXL3jSlsxAGpO2uUFdzbO=s88-c-k-c0x00ffffff-no-rj",
+    thumb:
+      "https://i.ytimg.com/vi/Zt2qxGtcKyY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDlHl6HxG5a4AHTzPp3UH4pTDioxg",
   },
   {
     id: 4,
-    title:
-      "CONTEXT API NO EDITOR DE POST | Criando uma Rede Social com React.js e .NET Core #27",
-    channel: "Lucas Nhimi",
-    views: "5,6 mi de visualizações",
-    date: "há 1 semana",
-    avatar: "/images/avatar.jpeg",
-    thumb: "/images/thumb4.png",
+    title: "PODPAH 24H - PARTE 1: JULIO COCIELO, PSIU,...",
+    channel: "Podpah",
+    views: "5 mi de visualizações",
+    date: "Transmitido há 1 mês",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AAUvwniChRToD--JOEs8A18uXL3jSlsxAGpO2uUFdzbO=s88-c-k-c0x00ffffff-no-rj",
+    thumb:
+      "https://i.ytimg.com/vi/skaCREeM5EA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBxuRvf-FnGmyDN8hZq1BTvBQu6fQ",
   },
   {
     id: 5,
-    title:
-      "EDITOR DE POST COM MARKDOWN 2 | Criando uma Rede Social com React.js e .NET Core #26",
-    channel: "Lucas Nhimi",
-    views: "2,2 mi de visualizações",
-    date: "há 1 semana",
-    avatar: "/images/avatar.jpeg",
-    thumb: "/images/thumb5.png",
+    title: "TUDO PARECIA MAS NÃO ERA UM SONHO (FUNK...",
+    channel: "DJ Lucas Beat",
+    views: "179 mil visualizações",
+    date: "há 4 dias",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AAUvwnhQ-OMWJfFZ68yME17P6VhnmLmfkn2xNz8tGMYg_g=s88-c-k-c0x00ffffff-no-rj",
+    thumb:
+      "https://i.ytimg.com/vi/ve1_9okkuqA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAf3xpxqJaw7Q7km2BGGf81fWTktw",
   },
   {
     id: 6,
-    title: "COMO MIGRAR PARA REACT HOOKS | Dicas e Truques #01",
-    channel: "Lucas Nhimi",
-    views: "233 mil visualizações",
-    date: "há 1 semana",
-    avatar: "/images/avatar.jpeg",
-    thumb: "/images/thumb6.png",
+    title: "LUCAS - DJ LUCAS BEAT & CAMILLA E LUDMILLA",
+    channel: "DJ Lucas Beat",
+    views: "230 mil visualizações",
+    date: "há 3 semanas",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AAUvwnhQ-OMWJfFZ68yME17P6VhnmLmfkn2xNz8tGMYg_g=s88-c-k-c0x00ffffff-no-rj",
+    thumb:
+      "https://i.ytimg.com/vi/mJnNCMrfCss/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBYdJidKwZ5lg_Iv4uTeBKZtwpZPw",
   },
   {
     id: 7,
-    title:
-      "PRÉ-REQUISITOS | Criando uma Rede Social com React.js e .NET Core #01",
-    channel: "Lucas Nhimi",
-    views: "118 mil visualizações",
-    date: "há 1 semana",
-    avatar: "/images/avatar.jpeg",
-    thumb: "/images/thumb7.png",
+    title: 'NEYMAR: "JÁ NÃO LIGO MAIS PRA BOLA DE OURO, QUERO A...',
+    channel: "TNT Sports Brasil",
+    views: "11 mil visualizações",
+    date: "há 25 minutos",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AAUvwnhxwvI3uv1cMpQKVMp6QLrmOsTouJmagoVleW_7=s48-c-k-c0x00ffffff-no-rj",
+    thumb:
+      "https://i.ytimg.com/vi/jLBsBYFN6Z8/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLArPg8BRhDuB4ybe8RQSc9Rt35_yg",
   },
   {
     id: 8,
-    title:
-      "GIT E GITHUB | Criando uma Rede Social com React.js e .NET Core #04",
-    channel: "Lucas Nhimi",
-    views: "1,9 mi de visualizações",
-    date: "há 1 semana",
-    avatar: "/images/avatar.jpeg",
-    thumb: "/images/thumb8.png",
+    title: "Dribles Mais Humilhantes de Neymar Jr",
+    channel: "iLance7i",
+    views: "3,8 mi de visualizações",
+    date: "há 6 meses",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AAUvwnhXn6L2eeQYeX9KXIzv4Ue6hte-cu-8rukfGBhYfQ=s48-c-k-c0x00ffffff-no-rj",
+    thumb:
+      "https://i.ytimg.com/vi/oUuA_PGr1-Q/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAtqvzDz60oM9xhB--pjLZRm2T57Q",
   },
 ];
 
@@ -476,26 +491,32 @@ function Home({ darkMode, setDarkMode }) {
                     alt={item.title}
                     src={item.thumb}
                   />
-                  <Box>
-                    <Typography
-                      style={{ fontWeight: 600 }}
-                      gutterBottom
-                      variant="body1"
-                      color="textPrimary"
-                    >
-                      {item.title}
-                    </Typography>
-                    <Typography
-                      display="block"
-                      variant="body2"
-                      color="textSecondary"
-                    >
-                      {item.channel}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {`${item.views} • ${item.date}`}
-                    </Typography>
-                  </Box>
+                  <div className={classes.divAvatar}>
+                    <Avatar alt={item.channel} src={item.avatar} />
+                    <Box>
+                      <Typography
+                        style={{ fontWeight: 600 }}
+                        gutterBottom
+                        variant="body1"
+                        color="textPrimary"
+                      >
+                        {item.title}
+                      </Typography>
+                      <Typography
+                        display="block"
+                        variant="body2"
+                        color="textSecondary"
+                      >
+                        {item.channel}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary">
+                        {`${item.views} •`}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary">
+                        {item.date}
+                      </Typography>
+                    </Box>
+                  </div>
                 </Box>
               </Grid>
             ))}
