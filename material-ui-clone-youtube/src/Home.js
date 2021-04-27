@@ -33,6 +33,7 @@ import History from "@material-ui/icons/History";
 import AddCircle from "@material-ui/icons/AddCircle";
 
 import { api } from "./services/api";
+import { channelApi } from "./services/channelApi";
 
 const drawerWidth = 240;
 
@@ -154,103 +155,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-/* const videos = [
-  {
-    id: 1,
-    title: "LUCAS INUTILISMO - Flow Podcast #212",
-    channel: "Flow Podcast",
-    views: "5,6 mi de visualizações",
-    date: "há 6 meses",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AAUvwnjs2A34JZ0bd5aHW1aAikt1IkHaj6mqO_sQ_MPOdQ=s88-c-k-c0x00ffffff-no-rj",
-    thumb:
-      "https://i.ytimg.com/vi/qOer7KEMHIo/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAcT1eRkya-xP_kUwG91eMtJQS1fA",
-  },
-  {
-    id: 2,
-    title: "DIOGO DEFANTE - Flow Podcast #184",
-    channel: "Flow Podcast",
-    views: "2,9 mi de visualizações",
-    date: "há 8 meses",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AAUvwnjs2A34JZ0bd5aHW1aAikt1IkHaj6mqO_sQ_MPOdQ=s88-c-k-c0x00ffffff-no-rj",
-    thumb:
-      "https://i.ytimg.com/vi/mtcudot_Urs/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDhzNWRrJPok6CSA63alsq_KqcGoQ",
-  },
-  {
-    id: 3,
-    title: "EVERSON ZOIO - Podpah #26",
-    channel: "Podpah",
-    views: "5,1 mi de visualizações",
-    date: "Transmitido há 4 meses",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AAUvwniChRToD--JOEs8A18uXL3jSlsxAGpO2uUFdzbO=s88-c-k-c0x00ffffff-no-rj",
-    thumb:
-      "https://i.ytimg.com/vi/Zt2qxGtcKyY/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDlHl6HxG5a4AHTzPp3UH4pTDioxg",
-  },
-  {
-    id: 4,
-    title: "PODPAH 24H - PARTE 1: JULIO COCIELO, PSIU,...",
-    channel: "Podpah",
-    views: "5 mi de visualizações",
-    date: "Transmitido há 1 mês",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AAUvwniChRToD--JOEs8A18uXL3jSlsxAGpO2uUFdzbO=s88-c-k-c0x00ffffff-no-rj",
-    thumb:
-      "https://i.ytimg.com/vi/skaCREeM5EA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBxuRvf-FnGmyDN8hZq1BTvBQu6fQ",
-  },
-  {
-    id: 5,
-    title: "TUDO PARECIA MAS NÃO ERA UM SONHO (FUNK...",
-    channel: "DJ Lucas Beat",
-    views: "179 mil visualizações",
-    date: "há 4 dias",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AAUvwnhQ-OMWJfFZ68yME17P6VhnmLmfkn2xNz8tGMYg_g=s88-c-k-c0x00ffffff-no-rj",
-    thumb:
-      "https://i.ytimg.com/vi/ve1_9okkuqA/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAf3xpxqJaw7Q7km2BGGf81fWTktw",
-  },
-  {
-    id: 6,
-    title: "LUCAS - DJ LUCAS BEAT & CAMILLA E LUDMILLA",
-    channel: "DJ Lucas Beat",
-    views: "230 mil visualizações",
-    date: "há 3 semanas",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AAUvwnhQ-OMWJfFZ68yME17P6VhnmLmfkn2xNz8tGMYg_g=s88-c-k-c0x00ffffff-no-rj",
-    thumb:
-      "https://i.ytimg.com/vi/mJnNCMrfCss/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBYdJidKwZ5lg_Iv4uTeBKZtwpZPw",
-  },
-  {
-    id: 7,
-    title: 'NEYMAR: "JÁ NÃO LIGO MAIS PRA BOLA DE OURO, QUERO A...',
-    channel: "TNT Sports Brasil",
-    views: "11 mil visualizações",
-    date: "há 25 minutos",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AAUvwnhxwvI3uv1cMpQKVMp6QLrmOsTouJmagoVleW_7=s48-c-k-c0x00ffffff-no-rj",
-    thumb:
-      "https://i.ytimg.com/vi/jLBsBYFN6Z8/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLArPg8BRhDuB4ybe8RQSc9Rt35_yg",
-  },
-  {
-    id: 8,
-    title: "Dribles Mais Humilhantes de Neymar Jr",
-    channel: "iLance7i",
-    views: "3,8 mi de visualizações",
-    date: "há 6 meses",
-    avatar:
-      "https://yt3.ggpht.com/ytc/AAUvwnhXn6L2eeQYeX9KXIzv4Ue6hte-cu-8rukfGBhYfQ=s48-c-k-c0x00ffffff-no-rj",
-    thumb:
-      "https://i.ytimg.com/vi/oUuA_PGr1-Q/hq720.jpg?sqp=-oaymwEcCOgCEMoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLAtqvzDz60oM9xhB--pjLZRm2T57Q",
-  },
-]; */
-
 function Home({ darkMode, setDarkMode }) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = useState(true);
 
-  const videos = [];
+  const [videos, setVideos] = useState([]);
 
   function viewsDescription(views) {
     if (views < 1000000)
@@ -289,22 +199,38 @@ function Home({ darkMode, setDarkMode }) {
 
   useEffect(() => {
     api.get().then((response) => {
+      let newVideos = [];
       response.data.items.forEach((item) => {
-        videos.push({
+        newVideos.push({
           title: item.snippet.title,
           channel: item.snippet.channelTitle,
           views: viewsDescription(item.statistics.viewCount),
           date: dateDescription(item.snippet.publishedAt),
-          avatar: "https://avatars.githubusercontent.com/u/23401362?v=4",
           thumb: item.snippet.thumbnails.maxres.url,
+          channelId: item.snippet.channelId,
         });
       });
+      setVideos(newVideos);
     });
   }, []);
 
-  console.log(videos);
-
-  // api.get().then((response) => console.log(response));
+  /* useEffect(() => {
+    let newVideos = videos;
+    newVideos.forEach((item) => {
+      const avatar = channelApi(item.channelId)
+        .get()
+        .then((response) => {
+          response.data.items.forEach(
+            (item) => item.snippet.thumbnails.high.url
+          );
+        });
+      item = {
+        ...item,
+        avatar,
+      };
+    });
+    setVideos(newVideos);
+  }); */
 
   const handleDrawer = () => {
     setOpen(!open);
@@ -370,11 +296,11 @@ function Home({ darkMode, setDarkMode }) {
             <Toolbar />
             <div className={classes.drawerContainer}>
               <List>
-                {listItens[0].itens.map((item) => {
+                {listItens[0].itens.map((item, index) => {
                   return (
                     <ListItem
                       button
-                      key={item.name}
+                      key={index}
                       classes={{ root: classes.listItem }}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
@@ -390,11 +316,11 @@ function Home({ darkMode, setDarkMode }) {
               </List>
               <Divider />
               <List>
-                {listItens[1].itens.map((item) => {
+                {listItens[1].itens.map((item, index) => {
                   return (
                     <ListItem
                       button
-                      key={item.name}
+                      key={index}
                       classes={{ root: classes.listItem }}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
@@ -437,11 +363,11 @@ function Home({ darkMode, setDarkMode }) {
                   </ListSubheader>
                 }
               >
-                {listItens[2].itens.map((item) => {
+                {listItens[2].itens.map((item, index) => {
                   return (
                     <ListItem
                       button
-                      key={item.name}
+                      key={index}
                       classes={{ root: classes.listItem }}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
@@ -457,11 +383,11 @@ function Home({ darkMode, setDarkMode }) {
               </List>
               <Divider />
               <List>
-                {listItens[3].itens.map((item) => {
+                {listItens[3].itens.map((item, index) => {
                   return (
                     <ListItem
                       button
-                      key={item.name}
+                      key={index}
                       classes={{ root: classes.listItem }}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
@@ -489,11 +415,11 @@ function Home({ darkMode, setDarkMode }) {
                   </ListSubheader>
                 }
               >
-                {listItens[4].itens.map((item) => {
+                {listItens[4].itens.map((item, index) => {
                   return (
                     <ListItem
                       button
-                      key={item.name}
+                      key={index}
                       classes={{ root: classes.listItem }}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
@@ -509,11 +435,11 @@ function Home({ darkMode, setDarkMode }) {
               </List>
               <Divider />
               <List>
-                {listItens[5].itens.map((item) => {
+                {listItens[5].itens.map((item, index) => {
                   return (
                     <ListItem
                       button
-                      key={item.name}
+                      key={index}
                       classes={{ root: classes.listItem }}
                     >
                       <ListItemIcon>{item.icon}</ListItemIcon>
