@@ -148,13 +148,14 @@ const useStyles = makeStyles((theme) => ({
 const videos = [
   {
     id: 1,
-    title:
-      "FEED DO USUÁRIO | Criando uma Rede Social com React.js e .NET Core #29",
-    channel: "Lucas Nhimi",
-    views: "11 mi de visualizações",
+    title: "LUCAS INUTILISMO - Flow Podcast #212",
+    channel: "Flow Podcast",
+    views: "5,6 mi de visualizações",
     date: "há 1 semana",
-    avatar: "/images/avatar.jpeg",
-    thumb: "/images/thumb1.png",
+    avatar:
+      "https://yt3.ggpht.com/ytc/AAUvwnjs2A34JZ0bd5aHW1aAikt1IkHaj6mqO_sQ_MPOdQ=s88-c-k-c0x00ffffff-no-rj",
+    thumb:
+      "https://i.ytimg.com/an_webp/qOer7KEMHIo/mqdefault_6s.webp?du=3000&sqp=CKyVnYQG&rs=AOn4CLDDNnxLCcZ1Mp6SzMpuUQawCI9IKw",
   },
   {
     id: 2,
