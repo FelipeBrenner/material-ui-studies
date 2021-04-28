@@ -198,39 +198,25 @@ function Home({ darkMode, setDarkMode }) {
   }
 
   useEffect(() => {
+    let newVideos = [];
     api.get().then((response) => {
-      let newVideos = [];
-      response.data.items.forEach((item) => {
+      response.data.items.forEach(async (item) => {
+        const responseChannel = await channelApi(item.snippet.channelId).get();
+        const avatar =
+          responseChannel.data.items[0].snippet.thumbnails.high.url;
+
         newVideos.push({
           title: item.snippet.title,
           channel: item.snippet.channelTitle,
           views: viewsDescription(item.statistics.viewCount),
           date: dateDescription(item.snippet.publishedAt),
           thumb: item.snippet.thumbnails.maxres.url,
-          channelId: item.snippet.channelId,
+          avatar,
         });
       });
       setVideos(newVideos);
     });
   }, []);
-
-  /* useEffect(() => {
-    let newVideos = videos;
-    newVideos.forEach((item) => {
-      const avatar = channelApi(item.channelId)
-        .get()
-        .then((response) => {
-          response.data.items.forEach(
-            (item) => item.snippet.thumbnails.high.url
-          );
-        });
-      item = {
-        ...item,
-        avatar,
-      };
-    });
-    setVideos(newVideos);
-  }); */
 
   const handleDrawer = () => {
     setOpen(!open);
