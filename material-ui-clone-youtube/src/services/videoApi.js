@@ -17,7 +17,7 @@ const idVideos =
   "%2C" +
   "mJnNCMrfCss"; // LUCAS - DJ LUCAS BEAT & CAMILLA E LUDMILLA
 
-export const api = axios.create({
+export const videoApi = axios.create({
   baseURL:
     "https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2Cstatistics&id=" +
     idVideos +
