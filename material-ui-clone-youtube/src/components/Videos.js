@@ -44,8 +44,8 @@ function VideosComponent({ classes }) {
 
   useEffect(() => {
     let newVideos = [];
-    videoApi.get().then((response) => {
-      response.data.items.forEach(async (item) => {
+    videoApi.get().then(async (response) => {
+      for (const item of response.data.items) {
         const responseChannel = await channelApi(item.snippet.channelId).get();
         const avatar =
           responseChannel.data.items[0].snippet.thumbnails.high.url;
@@ -58,7 +58,7 @@ function VideosComponent({ classes }) {
           thumb: item.snippet.thumbnails.maxres.url,
           avatar,
         });
-      });
+      }
       setVideos(newVideos);
     });
   }, []);
