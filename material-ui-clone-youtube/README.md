@@ -8,6 +8,6 @@ Interface do Youtube desenvolvida a partir das instruções deste [video](https:
 
 - Utilizado YouTube Data API para buscar automaticamente informações atualizadas de videos.
 - Utilizado Axios para realizar as requisições.
-- Refatorado.
+- Refatorado e adicionado detalhes a mais.
 
 Por Felipe Brenner
