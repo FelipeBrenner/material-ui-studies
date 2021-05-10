@@ -2,7 +2,7 @@
 
 ## 💻 Aplicação
 
-Interface do Youtube desenvolvida a partir das instruções deste [video](https://www.youtube.com/watch?v=u9FnmBdBl5k).
+Interface do Youtube desenvolvida a partir das instruções deste [video](https://www.youtube.com/watch?v=u9FnmBdBl5k), disponível para visualização [aqui](https://youtube-clone-felipebrenner.vercel.app/).
 
 ## 🚀 Feito a mais
 
