@@ -1,11 +1,10 @@
 import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import { Grid, Card } from "@material-ui/core";
+import { Grid, Card, makeStyles } from "@material-ui/core";
 
 import LeftContainer from "./components/LeftContainer";
 import RightContainer from "./components/RightContainer";
 
-const styles = () => ({
+const useStyles = makeStyles(() => ({
   root: {
     padding: "50px 100px",
     zIndex: 999,
@@ -18,9 +17,6 @@ const styles = () => ({
   rightBorder: {
     borderRight: "solid #d0D0D0 1px",
   },
-  content: {
-    marginTop: 0,
-  },
   background: {
     position: "absolute",
     height: 200,
@@ -30,36 +26,52 @@ const styles = () => ({
   },
   rightContainer: {
     background:
-      "url(https://hdwallsource.com/img/2014/8/my-neighbor-totoro-wallpaper-27981-28703-hd-wallpapers.jpg) center center",
+      "url(https://user-images.githubusercontent.com/15075759/28719144-86dc0f70-73b1-11e7-911d-60d70fcded21.png) center",
     flex: 1,
+    marginTop: 0,
   },
   heightAdjust: {
     display: "flex",
     flexDirection: "column",
   },
   paper: {
-    background: "#9de1fe",
-    padding: 20,
+    background: "#fed859",
+    padding: 13,
+    display: "flex",
+    alignItems: "center",
   },
   information: {
     color: "#444",
   },
-});
+  profilePicture: {
+    paddingRight: 15,
+    width: 48,
+    height: 48,
+  },
+  avatar: {
+    width: 49,
+    height: 49,
+  },
+}));
 
-const App = ({ classes }) => (
-  <div>
-    <div className={classes.background} />
-    <Grid container className={classes.root}>
-      <Grid item xs={12}>
-        <Card className={classes.card}>
-          <Grid container>
-            <LeftContainer classes={classes} />
-            <RightContainer classes={classes} />
-          </Grid>
-        </Card>
+function App() {
+  const classes = useStyles();
+
+  return (
+    <div>
+      <div className={classes.background} />
+      <Grid container className={classes.root}>
+        <Grid item xs={12}>
+          <Card className={classes.card}>
+            <Grid container>
+              <LeftContainer classes={classes} />
+              <RightContainer classes={classes} />
+            </Grid>
+          </Card>
+        </Grid>
       </Grid>
-    </Grid>
-  </div>
-);
+    </div>
+  );
+}
 
-export default withStyles(styles)(App);
+export default App;
