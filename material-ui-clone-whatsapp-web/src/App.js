@@ -14,6 +14,10 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     height: "calc(100vh - 100px)",
   },
+  cardHeaderActions: {
+    display: "flex",
+    justifyContent: "space-between",
+  },
   rightBorder: {
     borderRight: "solid #d0D0D0 1px",
   },
@@ -51,6 +55,10 @@ const useStyles = makeStyles(() => ({
   avatar: {
     width: 49,
     height: 49,
+  },
+  button: {
+    width: 40,
+    height: 40,
   },
 }));
 

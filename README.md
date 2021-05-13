@@ -5,6 +5,7 @@
 Repositório criado para estudos do Material-UI, uma biblioteca de componentes React que agiliza e facilita o desenvolvimento.
 
 - [Clone YouTube](https://github.com/FelipeBrenner/material-ui-studies/tree/main/material-ui-clone-youtube)
+- [Clone WhatsApp](https://github.com/FelipeBrenner/material-ui-studies/tree/main/material-ui-clone-whatsapp-web)
 
 ## 📖 Conceitos
 

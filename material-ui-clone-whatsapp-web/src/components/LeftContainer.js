@@ -1,39 +1,58 @@
 import React from "react";
-import ImageIcon from "@material-ui/icons/Image";
-import WorkIcon from "@material-ui/icons/Work";
-import BeachAccessIcon from "@material-ui/icons/BeachAccess";
+import { MoreVert, Chat } from "@material-ui/icons";
 import {
   Paper,
   Typography,
   Grid,
   CardHeader,
+  CardActions,
   Avatar,
   List,
   ListItem,
   ListItemText,
   Box,
+  IconButton,
 } from "@material-ui/core";
 import NoSignal from "../svg/NoSignal";
 
 const list = [
-  { id: 1, name: "Milani", text: "Poode", image: <ImageIcon /> },
-  { id: 2, name: "Kim", text: "Aham", image: <WorkIcon /> },
+  {
+    id: 1,
+    name: "Milani",
+    text: "Poode",
+    image: "./images/milani.jpg",
+  },
+  {
+    id: 2,
+    name: "Kim",
+    text: "Aham",
+    image: "./images/kim.jpg",
+  },
   {
     id: 3,
     name: "Vou te surpreender",
     text: "Delela: KKKK",
-    image: <BeachAccessIcon />,
+    image: "./images/grupo.jpg",
   },
 ];
 
 function LeftContainer({ classes }) {
   return (
     <Grid item xs={3}>
-      <CardHeader
-        className={classes.rightBorder}
-        avatar={<Avatar aria-label="Recipe">H</Avatar>}
-      />
-      <Paper className={classes.paper} elevation={0} square="true">
+      <Box className={classes.cardHeaderActions}>
+        <CardHeader
+          avatar={<Avatar aria-label="Recipe" src="./images/eu.jpg" />}
+        />
+        <CardActions className={classes.rightBorder}>
+          <IconButton className={classes.button} aria-label="new-conversation">
+            <Chat />
+          </IconButton>
+          <IconButton className={classes.button} aria-label="options-left">
+            <MoreVert />
+          </IconButton>
+        </CardActions>
+      </Box>
+      <Paper className={classes.paper} elevation={0} square={true}>
         <Box className={classes.profilePicture}>
           <NoSignal />
         </Box>
@@ -46,9 +65,9 @@ function LeftContainer({ classes }) {
       </Paper>
       <List>
         {list.map((item, key) => (
-          <ListItem key={key}>
+          <ListItem key={key} button={true}>
             <Box className={classes.profilePicture}>
-              <Avatar className={classes.avatar}>{item.image}</Avatar>
+              <Avatar className={classes.avatar} src={item.image} />
             </Box>
             <ListItemText primary={item.name} secondary={item.text} />
           </ListItem>
