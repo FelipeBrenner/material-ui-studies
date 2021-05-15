@@ -12,6 +12,7 @@ import {
   ListItemText,
   Box,
   IconButton,
+  makeStyles,
 } from "@material-ui/core";
 import NoSignal from "../svg/NoSignal";
 
@@ -36,7 +37,43 @@ const list = [
   },
 ];
 
-function LeftContainer({ classes }) {
+const useStyles = makeStyles((theme) => ({
+  cardHeaderActions: {
+    display: "flex",
+    justifyContent: "space-between",
+    background: theme.palette.background.dark,
+    height: 59,
+  },
+  rightBorder: {
+    borderRight: "solid #d0D0D0 1px",
+  },
+  paper: {
+    backgroundColor: theme.palette.type === "dark" ? "#444" : "#fed859",
+    padding: 13,
+    display: "flex",
+    alignItems: "center",
+  },
+  information: {
+    color: theme.palette.type === "dark" ? "#fed859" : "#444",
+  },
+  profilePicture: {
+    paddingRight: 15,
+    width: 48,
+    height: 48,
+  },
+  avatar: {
+    width: 49,
+    height: 49,
+  },
+  button: {
+    width: 40,
+    height: 40,
+  },
+}));
+
+function LeftContainer() {
+  const classes = useStyles();
+
   return (
     <Grid item xs={3}>
       <Box className={classes.cardHeaderActions}>
