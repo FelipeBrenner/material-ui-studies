@@ -45,6 +45,7 @@ function Home({ darkMode, setDarkMode }) {
         value={darkMode}
         onChange={() => setDarkMode(!darkMode)}
         className={classes.switch}
+        color="default"
       />
       <Grid container className={classes.root}>
         <Grid item xs={12}>

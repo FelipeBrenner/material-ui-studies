@@ -17,4 +17,6 @@ Repositório criado para estudos do Material-UI, uma biblioteca de componentes R
 - Abstração 3
   - <b>Material UI:</b> biblioteca que traz todos estes recursos dessa linguagem de design criada pelo Google para projetos React.
 
+---
+
 Por Felipe Brenner
