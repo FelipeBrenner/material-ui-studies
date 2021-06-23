@@ -135,32 +135,35 @@ export function DrawerComponent({ classes, open }) {
             })}
           </List>
           <Divider />
-          <Box ml={6} mr={8} mt={4} mb={4}>
-            <Typography variant="body2">
-              Faça login para curtir videos, comentar e se inscrever.
-            </Typography>
-            <Box mt={2}>
-              <Button
-                startIcon={<AccountCircle />}
-                variant="outlined"
-                color="secondary"
-              >
-                Fazer Login
-              </Button>
-            </Box>
-          </Box>
-          <Divider />
+          {open && (
+              <Box ml={6} mr={8} mt={4} mb={4}>
+                <Typography variant="body2">
+                  Faça login para curtir videos, comentar e se inscrever.
+                </Typography>
+                <Box mt={2}>
+                  <Button
+                    startIcon={<AccountCircle />}
+                    variant="outlined"
+                    color="secondary"
+                  >
+                    Fazer Login
+                  </Button>
+                </Box>
+              </Box>
+            ) && <Divider />}
           <List
             component="nav"
             aria-labelledby="nested-list-subheader"
             subheader={
-              <ListSubheader
-                component="div"
-                id="nested-list-subheader"
-                className={classes.subheader}
-              >
-                O Melhor do youtube
-              </ListSubheader>
+              open && (
+                <ListSubheader
+                  component="div"
+                  id="nested-list-subheader"
+                  className={classes.subheader}
+                >
+                  O Melhor do youtube
+                </ListSubheader>
+              )
             }
           >
             {listItens[2].itens.map((item, index) => {
@@ -206,13 +209,15 @@ export function DrawerComponent({ classes, open }) {
             component="nav"
             aria-labelledby="nested-list-subheader"
             subheader={
-              <ListSubheader
-                component="div"
-                id="nested-list-subheader"
-                className={classes.subheader}
-              >
-                Mais do YouTube
-              </ListSubheader>
+              open && (
+                <ListSubheader
+                  component="div"
+                  id="nested-list-subheader"
+                  className={classes.subheader}
+                >
+                  Mais do YouTube
+                </ListSubheader>
+              )
             }
           >
             {listItens[4].itens.map((item, index) => {
